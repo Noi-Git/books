@@ -12,6 +12,7 @@ const BookShow = ({ book, onDelete, onEdit }) => {
   }
   return (
     <div className='book-show'>
+      <img alt='books' src={`https://picsum.photos/seed/${book.id}/300/200`} />
       {showEdit && <BookEdit book={book} onEditAndSave={handleEditAndSave} />}
       {!showEdit && <h3>{book.title}</h3>}
       <div className='action'>
