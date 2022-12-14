@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const BookEdit = ({ book, onEdit, onEditSave }) => {
+const BookEdit = ({ book, onEditAndSave }) => {
   const [editTitle, setEditTitle] = useState(book.title)
 
   const handleEditTitle = (event) => {
@@ -10,8 +10,7 @@ const BookEdit = ({ book, onEdit, onEditSave }) => {
   const handleSave = (event) => {
     event.preventDefault()
 
-    onEdit(book.id, editTitle)
-    onEditSave()
+    onEditAndSave(book.id, editTitle)
   }
 
   return (
