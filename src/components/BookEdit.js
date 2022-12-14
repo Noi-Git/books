@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const BookEdit = ({ book, onEdit }) => {
+const BookEdit = ({ book, onEdit, onEditSave }) => {
   const [editTitle, setEditTitle] = useState(book.title)
 
   const handleEditTitle = (event) => {
@@ -11,8 +11,7 @@ const BookEdit = ({ book, onEdit }) => {
     event.preventDefault()
 
     onEdit(book.id, editTitle)
-
-    console.log('New Title: ', editTitle)
+    onEditSave()
   }
 
   return (

@@ -6,15 +6,15 @@ const BookShow = ({ book, onDelete, onEdit }) => {
 
   const handleDeleteBook = () => onDelete(book.id)
   const handleEditBook = () => setShowEdit(!showEdit)
-  // let content = <h3>{book.title}</h3>
-  // if (showEdit) {
-  //   content = <BookEdit />
-  // }
-
+  const handleEditSave = () => {
+    setShowEdit(false)
+  }
   return (
     <div className='book-show'>
       {/* {content} */}
-      {showEdit && <BookEdit book={book} onEdit={onEdit} />}
+      {showEdit && (
+        <BookEdit book={book} onEdit={onEdit} onEditSave={handleEditSave} />
+      )}
       {!showEdit && <h3>{book.title}</h3>}
       <div className='action'>
         <button className='edit' onClick={handleEditBook}>
